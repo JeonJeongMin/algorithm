@@ -1,9 +1,5 @@
 #include<iostream>
-#include<stack>
-#include<queue>
-#include<string>
 #include<vector>
-#include<malloc.h>
 using namespace std;
 #define MAX_V 101
 int graph[MAX_V][MAX_V];
@@ -19,11 +15,8 @@ void dfs(int v){
 			dfs(i);
 		}
 	}
-	
 }
-
 int main(){
-	
 	cin>>v_n>>edge_n;
 	int v, w;
 	for(int i=0;i<=v_n;i++){
@@ -32,16 +25,12 @@ int main(){
 		}
 		visit[i]=0;
 	}
-
-	
 	for(int i=1;i<=edge_n;i++){
 		cin>>v>>w;
 		graph[v][w]=graph[w][v]=1;
 	}
-	
 	dfs(1);
 	cout<<num_virus<<endl;
-	
 	return 0;
 }
 
