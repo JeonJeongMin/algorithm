@@ -1,2 +1,2 @@
-# algorithm_ex
+# algorithm
 알고리즘
