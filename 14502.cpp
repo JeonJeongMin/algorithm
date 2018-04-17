@@ -23,7 +23,6 @@ int calc(){
 }
 
 void dfs(int x,int y){
-	
 	for(int i=0;i<4;i++){
 		int newX=x+dx[i];
 		int newY=y+dy[i];
@@ -34,13 +33,9 @@ void dfs(int x,int y){
 				dfs(newX,newY);
 			}
 		}
-		
 	}
-	
-	
 }
 int main(){
-	
 	cin>>r>>c;
 	map[r][c];
 	for(int i=0;i<r;i++){
@@ -59,12 +54,10 @@ int main(){
 						copy_map[m][n]=map[m][n];
 					}
 				}
-				
 				pair<int,int> one = empty[i];
 				pair<int,int> two = empty[j];
 				pair<int,int> three = empty[k];
-				
-				
+
 				copy_map[one.first][one.second]=1;
 				copy_map[two.first][two.second]=1;
 				copy_map[three.first][three.second]=1;
@@ -79,14 +72,9 @@ int main(){
 				int tmp=calc();
 				if(max1<tmp)
 					max1=tmp;
-				
-				
-				
 			}
 		}
 	}
-	
 	cout<<max1<<endl;
-	
 	return 0;
 }
