@@ -7,9 +7,9 @@ vector<pair<int,int> > chicken;
 int visit[13];
 int n,m;
 int tmp;
-int mini=1000;
-int sum[100];
-int result=0;
+int mini=10000;
+int sum;
+int result=10000;
 int abs(int a){
 	if(a<0)
 		return -a;
@@ -18,29 +18,20 @@ int abs(int a){
 void dfs(int v, int depth){
 	visit[v]=1;
 	if(depth==m){
-		for(int i=0;i<100;i++){
-		sum[i]=100000;
-		}
-		
-		for(int j=0;j<home.size();j++){
-			
+		sum=0;
+		for(int j=0;j<home.size();j++){	
 			for(int k=0;k<13;k++){
 				if(visit[k]){
 					tmp=abs(home[j].first-chicken[k].first)+abs(home[j].second-chicken[k].second);
-					
-				if(sum[j]>tmp){
-					sum[j]=tmp;
-					}	
+				if(mini>tmp)
+					mini=tmp;
 				}	
 			}
+			sum+=mini;
+			mini=1000;
 		}
-	result=0;
-	for(int i=0;i<home.size();i++){
-		result+=sum[i];
-	}
-	if(result<mini)
-		mini=result;
-		
+		if(result>sum)
+			result=sum;
 	}
 	else{
 		for(int i=v;i<chicken.size();i++){
@@ -48,13 +39,10 @@ void dfs(int v, int depth){
 				dfs(i,depth+1);
 			}
 		}
-		
 	}
 	visit[v]=0;
-	
 }
 int main(){
-	
 	cin>>n>>m;
 	for(int i=0;i<n;i++){
 		for(int j=0;j<n;j++){
@@ -69,6 +57,6 @@ int main(){
 		dfs(i,1);
 	}
 	
-	cout<<mini;
+	cout<<result;
 	return 0;
 }
