@@ -50,24 +50,7 @@ int main(){
 	for(int i=1;i<N+1;i++)
 		visit[i]=0;
 	bfs(v);
-
-
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	delete[] visit;
-	for(int i=0;i<N+1;i++)
-		free(map[i]);
-	free(map);
 	
 	return 0;
 }
 
-//2차원배열을 dfs bfs쓸때 map크기를 동적으로 생성하는법 
